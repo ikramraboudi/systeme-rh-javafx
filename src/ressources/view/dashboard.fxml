@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="20" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardController">
+    
+    <!-- TITRE -->
+    <Label styleClass="page-title" text="Tableau de Bord" />
+    
+    <!-- STATISTIQUES EN CARTES -->
+    <GridPane hgap="20" vgap="20">
+        
+        <!-- Carte 1: Total Employés -->
+        <VBox styleClass="stat-card, stat-card-blue" GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20" />
+            </padding>
+            <Label styleClass="stat-label" text="👥 Total Employés" />
+            <Label fx:id="lblTotalEmployees" styleClass="stat-value" text="0" />
+            <Label styleClass="stat-description" text="Actifs dans l'entreprise" />
+        </VBox>
+        
+        <!-- Carte 2: Offres Ouvertes -->
+        <VBox styleClass="stat-card, stat-card-green" GridPane.columnIndex="1" GridPane.rowIndex="0">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20" />
+            </padding>
+            <Label styleClass="stat-label" text="📋 Offres Ouvertes" />
+            <Label fx:id="lblOpenJobs" styleClass="stat-value" text="0" />
+            <Label styleClass="stat-description" text="Postes à pourvoir" />
+        </VBox>
+        
+        <!-- Carte 3: Candidatures -->
+        <VBox styleClass="stat-card, stat-card-orange" GridPane.columnIndex="2" GridPane.rowIndex="0">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20" />
+            </padding>
+            <Label styleClass="stat-label" text="📄 Candidatures" />
+            <Label fx:id="lblTotalCandidates" styleClass="stat-value" text="0" />
+            <Label styleClass="stat-description" text="En attente d'analyse" />
+        </VBox>
+        
+        <!-- Carte 4: Taux d'acceptation -->
+        <VBox styleClass="stat-card, stat-card-purple" GridPane.columnIndex="3" GridPane.rowIndex="0">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20" />
+            </padding>
+            <Label styleClass="stat-label" text="✅ Taux d'Acceptation" />
+            <Label fx:id="lblAcceptanceRate" styleClass="stat-value" text="0%" />
+            <Label styleClass="stat-description" text="Candidats acceptés" />
+        </VBox>
+      <columnConstraints>
+         <ColumnConstraints />
+         <ColumnConstraints />
+         <ColumnConstraints />
+         <ColumnConstraints />
+      </columnConstraints>
+      <rowConstraints>
+         <RowConstraints />
+      </rowConstraints>
+        
+    </GridPane>
+    
+    <!-- GRAPHIQUES -->
+    <HBox spacing="20" VBox.vgrow="ALWAYS">
+        
+        <!-- Graphique 1: Employés par département -->
+        <VBox styleClass="chart-container" HBox.hgrow="ALWAYS">
+            <padding>
+                <Insets bottom="15" left="15" right="15" top="15" />
+            </padding>
+            <Label styleClass="chart-title" text="Employés par Département" />
+            <PieChart fx:id="employeesByDeptChart" legendVisible="true" VBox.vgrow="ALWAYS" />
+        </VBox>
+        
+        <!-- Graphique 2: Candidatures par mois -->
+        <VBox styleClass="chart-container" HBox.hgrow="ALWAYS">
+            <padding>
+                <Insets bottom="15" left="15" right="15" top="15" />
+            </padding>
+            <Label styleClass="chart-title" text="Candidatures (6 derniers mois)" />
+            <LineChart fx:id="candidaturesChart" VBox.vgrow="ALWAYS">
+                <xAxis>
+                    <CategoryAxis side="BOTTOM" />
+                </xAxis>
+                <yAxis>
+                    <NumberAxis side="LEFT" />
+                </yAxis>
+            </LineChart>
+        </VBox>
+        
+    </HBox>
+    
+    <!-- ACTIVITÉS RÉCENTES -->
+    <VBox styleClass="activity-container">
+        <padding>
+            <Insets bottom="15" left="15" right="15" top="15" />
+        </padding>
+        
+        <Label styleClass="section-title" />
+    </VBox>
+    
+</VBox>

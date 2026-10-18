@@ -1,0 +1,9 @@
+lib/
+dist/
+out/
+build/
+nbproject/private/
+*.class
+*.jar
+.idea/
+.env
